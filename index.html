@@ -70,6 +70,10 @@
     <!-- HERO -->
     <section class="hero" id="accueil" aria-label="Accueil">
       <div class="hero__bg">
+        <video class="hero__video" autoplay muted loop playsinline preload="none">
+          <source src="assets/images/hero-video.mp4" type="video/mp4" />
+        </video>
+        <div class="hero__overlay"></div>
         <div class="hero__gradient"></div>
       </div>
       <div class="hero__content">
@@ -122,19 +126,6 @@
 
           <article class="service-card reveal">
             <div class="service-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-            </div>
-            <h3 class="service-card__title">SEO & Référencement</h3>
-            <p class="service-card__desc">Positionnez votre showroom en tête de Google pour les requêtes locales cuisine équipée, dressing et MTV au Maroc.</p>
-            <ul class="service-card__list">
-              <li>Audit & stratégie SEO locale</li>
-              <li>Optimisation Google My Business</li>
-              <li>Création de contenu optimisé</li>
-            </ul>
-          </article>
-
-          <article class="service-card reveal reveal--delay-1">
-            <div class="service-card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
             </div>
             <h3 class="service-card__title">Réseaux sociaux</h3>
@@ -143,6 +134,19 @@
               <li>Stratégie éditoriale mensuelle</li>
               <li>Création visuelle haut de gamme</li>
               <li>Community management</li>
+            </ul>
+          </article>
+
+          <article class="service-card reveal reveal--delay-1">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+            <h3 class="service-card__title">Publicité Meta & Google</h3>
+            <p class="service-card__desc">Campagnes publicitaires ciblées pour générer des leads cuisinistes à coût maîtrisé. ROI mesurable dès le premier mois.</p>
+            <ul class="service-card__list">
+              <li>Campagnes Facebook & Instagram Ads</li>
+              <li>Google Ads & Display</li>
+              <li>Reporting mensuel détaillé</li>
             </ul>
           </article>
 
@@ -161,14 +165,14 @@
 
           <article class="service-card reveal reveal--delay-3">
             <div class="service-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
             </div>
-            <h3 class="service-card__title">Publicité Meta & Google</h3>
-            <p class="service-card__desc">Campagnes publicitaires ciblées pour générer des leads cuisinistes à coût maîtrisé. ROI mesurable dès le premier mois.</p>
+            <h3 class="service-card__title">SEO & Référencement</h3>
+            <p class="service-card__desc">Positionnez votre showroom en tête de Google pour les requêtes locales cuisine équipée, dressing et MTV au Maroc.</p>
             <ul class="service-card__list">
-              <li>Campagnes Facebook & Instagram Ads</li>
-              <li>Google Ads & Display</li>
-              <li>Reporting mensuel détaillé</li>
+              <li>Audit & stratégie SEO locale</li>
+              <li>Optimisation Google My Business</li>
+              <li>Création de contenu optimisé</li>
             </ul>
           </article>
 
@@ -192,49 +196,55 @@
         <div class="gallery__item reveal" role="listitem">
           <div class="gallery__thumb">
             <img src="assets/images/realisation-1.jpg" alt="Cuisine équipée moderne noire avec îlot en marbre - réalisation cuisiniste Maroc" loading="lazy" width="600" height="450" />
-            <div class="gallery__overlay">
-              <span>Cuisine équipée</span>
-            </div>
+            <div class="gallery__overlay"><span>Cuisine équipée</span></div>
           </div>
         </div>
         <div class="gallery__item reveal reveal--delay-1" role="listitem">
           <div class="gallery__thumb">
             <img src="assets/images/realisation-2.jpg" alt="Showroom cuisine moderne avec éclairage LED - Moderlux Maroc" loading="lazy" width="600" height="450" />
-            <div class="gallery__overlay">
-              <span>Showroom</span>
-            </div>
+            <div class="gallery__overlay"><span>Showroom</span></div>
           </div>
         </div>
         <div class="gallery__item reveal reveal--delay-2" role="listitem">
           <div class="gallery__thumb">
             <img src="assets/images/realisation-3.jpg" alt="Cuisine bois et noir avec verrière et éclairage intégré" loading="lazy" width="600" height="450" />
-            <div class="gallery__overlay">
-              <span>Cuisine & Dressing</span>
-            </div>
+            <div class="gallery__overlay"><span>Cuisine & Dressing</span></div>
           </div>
         </div>
         <div class="gallery__item reveal" role="listitem">
           <div class="gallery__thumb">
             <img src="assets/images/realisation-4.jpg" alt="Grande cuisine moderne blanc et bois avec îlot central et luminaires suspendus" loading="lazy" width="600" height="450" />
-            <div class="gallery__overlay">
-              <span>Cuisine ouverte</span>
-            </div>
+            <div class="gallery__overlay"><span>Cuisine ouverte</span></div>
           </div>
         </div>
         <div class="gallery__item reveal reveal--delay-1" role="listitem">
           <div class="gallery__thumb">
             <img src="assets/images/realisation-5.jpg" alt="Client satisfait dans sa cuisine noire haut de gamme - témoignage cuisiniste Maroc" loading="lazy" width="600" height="450" />
-            <div class="gallery__overlay">
-              <span>Réalisation client</span>
-            </div>
+            <div class="gallery__overlay"><span>Réalisation client</span></div>
           </div>
         </div>
         <div class="gallery__item reveal reveal--delay-2" role="listitem">
           <div class="gallery__thumb">
             <img src="assets/images/realisation-6.jpg" alt="Dressing intégré bois avec éclairage LED ambiance luxe" loading="lazy" width="600" height="450" />
-            <div class="gallery__overlay">
-              <span>Dressing</span>
-            </div>
+            <div class="gallery__overlay"><span>Dressing</span></div>
+          </div>
+        </div>
+        <div class="gallery__item reveal" role="listitem">
+          <div class="gallery__thumb">
+            <img src="assets/images/realisation-7.jpg" alt="Cuisine contemporaine avec comptoir en marbre blanc et îlot central" loading="lazy" width="600" height="450" />
+            <div class="gallery__overlay"><span>Cuisine contemporaine</span></div>
+          </div>
+        </div>
+        <div class="gallery__item reveal reveal--delay-1" role="listitem">
+          <div class="gallery__thumb">
+            <img src="assets/images/realisation-8.jpg" alt="Cuisine haut de gamme bois naturel et noir - réalisation cuisiniste Maroc" loading="lazy" width="600" height="450" />
+            <div class="gallery__overlay"><span>Cuisine bois & noir</span></div>
+          </div>
+        </div>
+        <div class="gallery__item reveal reveal--delay-2" role="listitem">
+          <div class="gallery__thumb">
+            <img src="assets/images/realisation-9.jpg" alt="Cuisine design avec dressing intégré et éclairage LED" loading="lazy" width="600" height="450" />
+            <div class="gallery__overlay"><span>Cuisine & Dressing</span></div>
           </div>
         </div>
       </div>
@@ -324,7 +334,7 @@
               </div>
               <div>
                 <p class="contact__item-label">Zone d'intervention</p>
-                <p class="contact__item-value">Maroc — service national</p>
+                <p class="contact__item-value">Agence 100% digitale — Maroc</p>
               </div>
             </div>
             <a href="https://wa.me/212649134798?text=Bonjour%20Make%20Media%2C%20je%20souhaite%20d%C3%A9marrer%20un%20projet%20digital." class="btn btn--whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Contacter Make Media sur WhatsApp">
@@ -346,15 +356,22 @@
               <label for="tel">Téléphone</label>
               <input type="tel" id="tel" name="tel" autocomplete="tel" placeholder="+212 6XX XX XX XX" />
             </div>
-            <div class="form-group">
-              <label for="activite">Votre activité</label>
-              <select id="activite" name="activite">
-                <option value="">Sélectionnez</option>
-                <option value="cuisiniste">Cuisiniste</option>
-                <option value="dressing">Dressing / Placard</option>
-                <option value="mtv">MTV</option>
-                <option value="autre">Autre</option>
-              </select>
+            <div class="form-group form-group--full">
+              <label>Votre profil</label>
+              <div class="radio-group" role="group" aria-label="Votre profil">
+                <label class="radio-option">
+                  <input type="radio" name="activite" value="cuisiniste" />
+                  <span>Cuisiniste</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="activite" value="architecte" />
+                  <span>Architecte</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="activite" value="autre" />
+                  <span>Autre</span>
+                </label>
+              </div>
             </div>
             <div class="form-group form-group--full">
               <label for="message">Message *</label>
