@@ -79,8 +79,8 @@ const form = document.getElementById('contactForm');
 form?.addEventListener('submit', e => {
   e.preventDefault();
   const btn = form.querySelector('button[type="submit"]');
-  const name = form.name?.value?.trim();
-  const tel  = form.tel?.value?.trim();
+  const name = form.elements['name']?.value?.trim();
+  const tel  = form.elements['tel']?.value?.trim();
 
   if (!name || !tel) {
     showFormMessage('Veuillez remplir votre nom et téléphone.', 'error');
@@ -92,7 +92,7 @@ form?.addEventListener('submit', e => {
 
   const subject = encodeURIComponent(`[Make Media] Message de ${name}`);
   const body = encodeURIComponent(
-    `Nom: ${name}\nTéléphone: ${tel}\nProfil: ${form.activite?.value || 'N/A'}\n\nMessage:\n${form.message?.value?.trim() || '—'}`
+    `Nom: ${name}\nTéléphone: ${tel}\nProfil: ${form.elements['activite']?.value || 'N/A'}\n\nMessage:\n${form.elements['message']?.value?.trim() || '—'}`
   );
   window.location.href = `mailto:makemedia.officiel@gmail.com?subject=${subject}&body=${body}`;
 
