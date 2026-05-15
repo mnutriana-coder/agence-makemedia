@@ -599,8 +599,8 @@ input, textarea, select { font-family: inherit; }
   width: 100%;
 }
 .contact__item-icon {
-  width: 36px;
-  height: 36px;
+  width: 45px;
+  height: 45px;
   background: rgba(201,168,76,.1);
   border-radius: 8px;
   display: flex;
@@ -609,7 +609,7 @@ input, textarea, select { font-family: inherit; }
   flex-shrink: 0;
   color: var(--gold);
 }
-.contact__item-icon svg { width: 18px; height: 18px; }
+.contact__item-icon svg { width: 22px; height: 22px; }
 .contact__item-label {
   font-size: .7rem;
   letter-spacing: .12em;
@@ -799,8 +799,8 @@ a.contact__item-value:hover { color: var(--gold); }
   bottom: 16px;
   right: 14px;
   z-index: 90;
-  width: 44px;
-  height: 44px;
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
   background: #25D366;
   display: flex;
@@ -809,7 +809,7 @@ a.contact__item-value:hover { color: var(--gold); }
   box-shadow: 0 2px 10px rgba(37,211,102,.35);
   transition: transform var(--transition), box-shadow var(--transition);
 }
-.whatsapp-fab svg { width: 22px; height: 22px; }
+.whatsapp-fab svg { width: 28px; height: 28px; }
 .whatsapp-fab:hover { transform: scale(1.07); box-shadow: 0 4px 16px rgba(37,211,102,.5); }
 
 /* ============================================
