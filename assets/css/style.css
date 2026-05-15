@@ -311,6 +311,7 @@ input, textarea, select { font-family: inherit; }
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+  justify-content: center;
 }
 .hero__scroll-hint {
   position: absolute;
