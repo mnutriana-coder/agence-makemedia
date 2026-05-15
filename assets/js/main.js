@@ -80,25 +80,19 @@ form?.addEventListener('submit', e => {
   e.preventDefault();
   const btn = form.querySelector('button[type="submit"]');
   const name = form.name?.value?.trim();
-  const email = form.email?.value?.trim();
-  const message = form.message?.value?.trim();
+  const tel  = form.tel?.value?.trim();
 
-  if (!name || !email || !message) {
-    showFormMessage('Veuillez remplir tous les champs obligatoires.', 'error');
-    return;
-  }
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    showFormMessage('Adresse email invalide.', 'error');
+  if (!name || !tel) {
+    showFormMessage('Veuillez remplir votre nom et téléphone.', 'error');
     return;
   }
 
   btn.disabled = true;
   btn.textContent = 'Envoi en cours…';
 
-  /* Build mailto fallback (no backend required for static deployment) */
   const subject = encodeURIComponent(`[Make Media] Message de ${name}`);
   const body = encodeURIComponent(
-    `Nom: ${name}\nEmail: ${email}\nTéléphone: ${form.tel?.value || 'N/A'}\nActivité: ${form.activite?.value || 'N/A'}\n\nMessage:\n${message}`
+    `Nom: ${name}\nTéléphone: ${tel}\nProfil: ${form.activite?.value || 'N/A'}\n\nMessage:\n${form.message?.value?.trim() || '—'}`
   );
   window.location.href = `mailto:makemedia.officiel@gmail.com?subject=${subject}&body=${body}`;
 
