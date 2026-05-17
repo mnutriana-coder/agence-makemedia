@@ -75,8 +75,10 @@ if ('IntersectionObserver' in window) {
 }
 
 /* === Contact form === */
+emailjs.init('JJgHcyHoqea8MNmTt');
+
 const form = document.getElementById('contactForm');
-form?.addEventListener('submit', e => {
+form?.addEventListener('submit', async e => {
   e.preventDefault();
   const btn = form.querySelector('button[type="submit"]');
   const name = form.elements['name']?.value?.trim();
@@ -90,18 +92,22 @@ form?.addEventListener('submit', e => {
   btn.disabled = true;
   btn.textContent = 'Envoi en cours…';
 
-  const subject = encodeURIComponent(`[Make Media] Message de ${name}`);
-  const body = encodeURIComponent(
-    `Nom: ${name}\nTéléphone: ${tel}\nProfil: ${form.elements['activite']?.value || 'N/A'}\n\nMessage:\n${form.elements['message']?.value?.trim() || '—'}`
-  );
-  window.location.href = `mailto:makemedia.officiel@gmail.com?subject=${subject}&body=${body}`;
-
-  setTimeout(() => {
+  try {
+    await emailjs.send('service_cr5lmxh', 'template_w2maovd', {
+      from_name: name,
+      telephone: tel,
+      profil: form.elements['activite']?.value || 'Non renseigné',
+      message: form.elements['message']?.value?.trim() || '—',
+      to_email: 'makemedia.officiel@gmail.com',
+    });
+    showFormMessage('Merci ! Votre message a bien été envoyé. Réponse sous 24h ouvrées.', 'success');
+    form.reset();
+  } catch {
+    showFormMessage("Une erreur est survenue. Veuillez réessayer ou nous appeler directement.", 'error');
+  } finally {
     btn.disabled = false;
     btn.textContent = 'Envoyer le message';
-    showFormMessage('Merci ! Votre message a été préparé. Réponse sous 24h.', 'success');
-    form.reset();
-  }, 800);
+  }
 });
 
 function showFormMessage(text, type) {
