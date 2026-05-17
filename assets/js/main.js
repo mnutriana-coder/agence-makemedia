@@ -95,7 +95,7 @@ form?.addEventListener('submit', async e => {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
       body: JSON.stringify({
-        access_key: 'df02075f-db97-42f6-ba62-3b1ec571a87b',
+        access_key: 'a5279d55-b337-40c0-8104-fb0efd682978',
         subject: `[Make Media] Message de ${name}`,
         from_name: 'Make Media – Formulaire de contact',
         replyto: 'makemedia.officiel@gmail.com',
