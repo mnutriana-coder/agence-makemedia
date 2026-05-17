@@ -76,7 +76,7 @@ if ('IntersectionObserver' in window) {
 
 /* === Contact form === */
 const form = document.getElementById('contactForm');
-form?.addEventListener('submit', async e => {
+form?.addEventListener('submit', e => {
   e.preventDefault();
   const btn = form.querySelector('button[type="submit"]');
   const name = form.elements['name']?.value?.trim();
@@ -90,34 +90,18 @@ form?.addEventListener('submit', async e => {
   btn.disabled = true;
   btn.textContent = 'Envoi en cours…';
 
-  try {
-    const res = await fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify({
-        access_key: 'a5279d55-b337-40c0-8104-fb0efd682978',
-        subject: `[Make Media] Message de ${name}`,
-        from_name: 'Make Media – Formulaire de contact',
-        replyto: 'm.mouhib1002@gmail.com',
-        name,
-        telephone: tel,
-        profil: form.elements['activite']?.value || 'Non renseigné',
-        message: form.elements['message']?.value?.trim() || '—',
-      }),
-    });
-    const json = await res.json();
-    if (json.success) {
-      showFormMessage('Merci ! Votre message a bien été envoyé. Réponse sous 24h ouvrées.', 'success');
-      form.reset();
-    } else {
-      showFormMessage("Une erreur est survenue. Veuillez réessayer ou nous appeler directement.", 'error');
-    }
-  } catch {
-    showFormMessage("Une erreur réseau est survenue. Veuillez réessayer.", 'error');
-  } finally {
+  const subject = encodeURIComponent(`[Make Media] Message de ${name}`);
+  const body = encodeURIComponent(
+    `Nom: ${name}\nTéléphone: ${tel}\nProfil: ${form.elements['activite']?.value || 'N/A'}\n\nMessage:\n${form.elements['message']?.value?.trim() || '—'}`
+  );
+  window.location.href = `mailto:makemedia.officiel@gmail.com?subject=${subject}&body=${body}`;
+
+  setTimeout(() => {
     btn.disabled = false;
     btn.textContent = 'Envoyer le message';
-  }
+    showFormMessage('Merci ! Votre message a été préparé. Réponse sous 24h.', 'success');
+    form.reset();
+  }, 800);
 });
 
 function showFormMessage(text, type) {
