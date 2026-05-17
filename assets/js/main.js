@@ -76,7 +76,7 @@ if ('IntersectionObserver' in window) {
 
 /* === Contact form === */
 const form = document.getElementById('contactForm');
-form?.addEventListener('submit', e => {
+form?.addEventListener('submit', async e => {
   e.preventDefault();
   const btn = form.querySelector('button[type="submit"]');
   const name = form.elements['name']?.value?.trim();
@@ -90,18 +90,33 @@ form?.addEventListener('submit', e => {
   btn.disabled = true;
   btn.textContent = 'Envoi en cours…';
 
-  const subject = encodeURIComponent(`[Make Media] Message de ${name}`);
-  const body = encodeURIComponent(
-    `Nom: ${name}\nTéléphone: ${tel}\nProfil: ${form.elements['activite']?.value || 'N/A'}\n\nMessage:\n${form.elements['message']?.value?.trim() || '—'}`
-  );
-  window.location.href = `mailto:makemedia.officiel@gmail.com?subject=${subject}&body=${body}`;
-
-  setTimeout(() => {
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({
+        access_key: '8850f8ce-0d6a-4c5c-a942-7b69fed59d25',
+        subject: `[Make Media] Message de ${name}`,
+        from_name: 'Make Media – Formulaire de contact',
+        name,
+        telephone: tel,
+        profil: form.elements['activite']?.value || 'Non renseigné',
+        message: form.elements['message']?.value?.trim() || '—',
+      }),
+    });
+    const json = await res.json();
+    if (json.success) {
+      showFormMessage('Merci ! Votre message a bien été envoyé. Réponse sous 24h ouvrées.', 'success');
+      form.reset();
+    } else {
+      showFormMessage("Une erreur est survenue. Veuillez réessayer ou nous appeler directement.", 'error');
+    }
+  } catch {
+    showFormMessage("Une erreur réseau est survenue. Veuillez réessayer.", 'error');
+  } finally {
     btn.disabled = false;
     btn.textContent = 'Envoyer le message';
-    showFormMessage('Merci ! Votre message a été préparé. Réponse sous 24h.', 'success');
-    form.reset();
-  }, 800);
+  }
 });
 
 function showFormMessage(text, type) {
