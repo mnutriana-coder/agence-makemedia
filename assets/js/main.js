@@ -75,7 +75,9 @@ if ('IntersectionObserver' in window) {
 }
 
 /* === Contact form === */
-emailjs.init('JJgHcyHoqea8MNmTt');
+if (typeof emailjs !== 'undefined') {
+  emailjs.init('JJgHcyHoqea8MNmTt');
+}
 
 const form = document.getElementById('contactForm');
 form?.addEventListener('submit', async e => {
@@ -93,6 +95,7 @@ form?.addEventListener('submit', async e => {
   btn.textContent = 'Envoi en cours…';
 
   try {
+    if (typeof emailjs === 'undefined') throw new Error('EmailJS non chargé');
     await emailjs.send('service_cr5lmxh', 'template_w2maovd', {
       from_name: name,
       telephone: tel,
@@ -100,7 +103,7 @@ form?.addEventListener('submit', async e => {
       message: form.elements['message']?.value?.trim() || '—',
       to_email: 'makemedia.officiel@gmail.com',
     });
-    showFormMessage('Merci ! Votre message a bien été envoyé. Réponse sous 24h ouvrées.', 'success');
+    showFormMessage('Message envoyé avec succès ✓', 'success');
     form.reset();
   } catch {
     showFormMessage("Une erreur est survenue. Veuillez réessayer ou nous appeler directement.", 'error');
