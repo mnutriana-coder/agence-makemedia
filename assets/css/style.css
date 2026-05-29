@@ -755,6 +755,31 @@ a.contact__item-value:hover { color: var(--gold); }
   max-width: 240px;
   line-height: 1.5;
 }
+.footer__socials {
+  display: flex;
+  gap: 12px;
+  margin-top: 4px;
+}
+.footer__socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  color: var(--white-60);
+  border: 1px solid var(--white-10);
+  transition: color var(--transition), border-color var(--transition), transform var(--transition);
+}
+.footer__socials a svg {
+  width: 15px;
+  height: 15px;
+}
+.footer__socials a:hover {
+  color: var(--gold);
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
 .footer__nav {
   display: flex;
   flex-wrap: wrap;
