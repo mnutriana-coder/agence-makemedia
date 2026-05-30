@@ -585,6 +585,10 @@ input, textarea, select { font-family: inherit; }
   background: var(--black);
   position: relative;
   overflow: hidden;
+  text-align: center;
+}
+.contact .section-header {
+  text-align: center;
 }
 .contact__glow {
   position: absolute;
