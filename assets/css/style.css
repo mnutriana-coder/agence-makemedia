@@ -589,6 +589,18 @@ input, textarea, select { font-family: inherit; }
   grid-template-columns: 1fr;
   gap: 48px;
 }
+.contact__cta-block {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 16px 0 8px;
+}
+.contact__cta-text {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,.65);
+  line-height: 1.8;
+  margin-bottom: 36px;
+}
 .contact__item {
   display: flex;
   align-items: flex-start;
