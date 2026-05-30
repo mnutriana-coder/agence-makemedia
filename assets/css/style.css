@@ -605,6 +605,7 @@ input, textarea, select { font-family: inherit; }
   border: 1px solid rgba(201,168,76,.18);
   background: linear-gradient(160deg, rgba(201,168,76,.04) 0%, rgba(255,255,255,.02) 100%);
   backdrop-filter: blur(4px);
+  text-align: center;
 }
 .contact__corner {
   position: absolute;
@@ -664,18 +665,21 @@ input, textarea, select { font-family: inherit; }
 .contact__cta-note {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  justify-content: center;
+  gap: 5px;
   margin-top: 20px;
-  font-size: .75rem;
+  font-size: .7rem;
   letter-spacing: .08em;
   text-transform: uppercase;
-  color: rgba(255,255,255,.35);
+  color: rgba(255,255,255,.3);
 }
 .contact__cta-note svg {
-  width: 13px;
-  height: 13px;
+  width: 11px !important;
+  height: 11px !important;
+  max-width: 11px;
+  max-height: 11px;
   color: var(--gold);
-  opacity: .6;
+  opacity: .5;
   flex-shrink: 0;
 }
 .contact__item {
